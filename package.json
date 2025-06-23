@@ -10,11 +10,11 @@
     "main": "build/main.js"
   },
   "scripts": {
-    "build": "rimraf build && tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "build": "node init && rimraf build && tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "pkg": "rimraf dist && npm run build && pkg package.json",
     "sort": "sort-package-json",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start": "node init && ts-node -r tsconfig-paths/register src/main.ts",
     "stubhub": "ts-node -r tsconfig-paths/register stubhub-scraper.ts",
     "stubhub-api": "ts-node -r tsconfig-paths/register stubhub-api.ts",
     "stubhub-test": "ts-node -r tsconfig-paths/register stubhub-troubleshoot.ts",
