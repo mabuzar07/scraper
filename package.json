@@ -4,8 +4,8 @@
   "description": "StubHub price scraper API using Playwright",
   "main": "index.js",
   "scripts": {
-    "start": "node scraper.js",
-    "dev": "nodemon scraper.js",
+    "start": "node init && node scraper.js",
+    "dev": "node init && nodemon scraper.js",
     "install-browsers": "npx playwright install chromium"
   },
   "keywords": [
