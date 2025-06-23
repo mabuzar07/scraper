@@ -61,7 +61,7 @@ let requestCount = 0;
 async function initBrowser() {
   try {
     browser = await chromium.launch({
-      headless: false, // Set to true for production
+      headless: true, // Set to true for production
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
