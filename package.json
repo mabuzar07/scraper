@@ -1,0 +1,27 @@
+{
+  "name": "stubhub-scraper-api",
+  "version": "1.0.0",
+  "description": "StubHub price scraper API using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "start": "node scraper.js",
+    "dev": "nodemon scraper.js",
+    "install-browsers": "npx playwright install chromium"
+  },
+  "keywords": [
+    "scraper",
+    "stubhub",
+    "playwright",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "playwright": "^1.40.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
