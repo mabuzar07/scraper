@@ -6,7 +6,6 @@ yarn-error.log*
 
 # IDEs
 .idea/
-.vscode/
 
 # Dependency directories
 node_modules/
@@ -25,7 +24,6 @@ node_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 
 # OS X temporary files
 .DS_Store
@@ -57,3 +55,4 @@ storage/
 build
 **/*.xlsx
 params*.json
+config.bat
