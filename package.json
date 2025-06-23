@@ -1,27 +1,89 @@
 {
-  "name": "stubhub-scraper-api",
+  "name": "sofascore-scrape",
   "version": "1.0.0",
-  "description": "StubHub price scraper API using Playwright",
-  "main": "index.js",
-  "scripts": {
-    "start": "node scraper.js",
-    "dev": "nodemon scraper.js",
-    "install-browsers": "npx playwright install chromium"
-  },
-  "keywords": [
-    "scraper",
-    "stubhub",
-    "playwright",
-    "api"
-  ],
-  "author": "",
+  "description": "SofaScore Scrapper",
+  "keywords": [],
   "license": "ISC",
+  "author": "",
+  "main": "build/main.js",
+  "bin": {
+    "main": "build/main.js"
+  },
+  "scripts": {
+    "build": "rimraf build && tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "pkg": "rimraf dist && npm run build && pkg package.json",
+    "sort": "sort-package-json",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "stubhub": "ts-node -r tsconfig-paths/register stubhub-scraper.ts",
+    "stubhub-api": "ts-node -r tsconfig-paths/register stubhub-api.ts",
+    "stubhub-test": "ts-node -r tsconfig-paths/register stubhub-troubleshoot.ts",
+    "stubhub-quick": "ts-node -r tsconfig-paths/register stubhub-quick-test.ts",
+    "stubhub-proxy-test": "ts-node -r tsconfig-paths/register test-proxy-stubhub.ts",
+    "stubhub-direct-test": "ts-node -r tsconfig-paths/register test-direct-stubhub.ts"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,js,css,md}": "prettier . --write"
+  },
   "dependencies": {
+    "@inquirer/select": "^2.5.0",
+    "@types/tough-cookie": "^4.0.5",
+    "axios": "^0.27.2",
+    "bottleneck": "^2.19.5",
+    "chalk": "^4.1.2",
+    "cors": "^2.8.5",
+    "date-fns": "^2.28.0",
+    "date-fns-tz": "^1.3.4",
+    "excel4node": "^1.7.2",
     "express": "^4.18.2",
+    "got": "^11.8.2",
+    "hpagent": "^1.2.0",
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.6",
+    "inquirer": "^8.2.4",
+    "lodash": "^4.17.21",
     "playwright": "^1.40.0",
-    "cors": "^2.8.5"
+    "puppeteer": "^24.10.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "socks-proxy-agent": "^8.0.5",
+    "source-map-support": "^0.5.21",
+    "tough-cookie": "^5.1.2",
+    "user-agents": "^1.1.561",
+    "uuid": "^8.3.2",
+    "winston": "^3.7.2"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/inquirer": "^8.2.1",
+    "@types/lodash": "^4.14.182",
+    "@types/md5": "^2.3.2",
+    "@types/node": "^15.12.1",
+    "@types/uuid": "^8.3.4",
+    "lint-staged": "^12.3.3",
+    "madge": "^5.0.1",
+    "pkg": "^5.7.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "simple-git-hooks": "^2.7.0",
+    "sort-package-json": "^1.50.0",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "0.0.9",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "5.7.3"
+  },
+  "pkg": {
+    "scripts": "build/**/*.{js,map}",
+    "targets": [
+      "node18-linux",
+      "node18-win"
+    ],
+    "outputPath": "dist"
   }
 }
