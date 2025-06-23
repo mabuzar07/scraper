@@ -5,7 +5,7 @@ import { logger } from "utils/logger";
 import { objectifyErrorObject } from "utils/error-formatter";
 
 const app = express();
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8888;
 
 // Enable CORS for all routes
 app.use(cors());
